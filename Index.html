@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Surfer Thali Branch</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#e99c37;
+margin:0;
+padding:0;
+}
+
+.header{
+background:#033363;
+color:rgb(255, 255, 255);
+padding:15px;
+text-align:center;
+font-size:24px;
+}
+
+.container{
+width:90%;
+max-width:500px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#066dd4;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#055fc0;
+}
+
+.card{
+margin-top:20px;
+padding:15px;
+background:#f6f7f8;
+border-radius:10px;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">Web Surfer Thali Branch</div>
+
+<div class="container">
+
+<h3>Customer Login</h3>
+
+<input type="text" id="userid" placeholder="Enter Login ID">
+<input type="password" id="password" placeholder="Enter Password">
+
+<button onclick="login()">Login</button>
+
+<div id="result" class="card hidden"></div>
+
+</div>
+
+<script>
+
+const customers = [
+{id:"1001",pass:"1234",name:"Ram",package:"30 Mbps"},
+{id:"1002",pass:"1234",name:"Shyam",package:"40 Mbps"},
+{id:"1003",pass:"1234",name:"Shiva",package:"50 Mbps"},
+{id:"1004",pass:"1234",name:"Bhuwan",package:"60 Mbps"},
+{id:"1005",pass:"1234",name:"Ajay",package:"30 Mbps"},
+{id:"1006",pass:"1234",name:"Keshab",package:"80 Mbps"},
+{id:"1007",pass:"1234",name:"Meena",package:"50 Mbps"},
+{id:"1008",pass:"1234",name:"Ramesh",package:"100 Mbps"},
+{id:"1009",pass:"1234",name:"Dinesh",package:"75 Mbps"},
+{id:"1010",pass:"1234",name:"Laxmi",package:"45 Mbps"}
+];
+
+function login(){
+
+let uid = document.getElementById("userid").value;
+let pw = document.getElementById("password").value;
+
+let user = customers.find(c => c.id === uid && c.pass === pw);
+
+if(user){
+
+document.getElementById("result").classList.remove("hidden");
+
+document.getElementById("result").innerHTML = `
+<h3>Welcome ${user.name}</h3>
+<p><b>User ID:</b> ${user.id}</p>
+<p><b>Package:</b> ${user.package}</p>
+<p><b>Support:</b> 9841000000</p>
+<p><b>Router IP:</b> <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></p>
+`;
+
+}else{
+alert("Wrong Login ID or Password");
+}
+
+}
+
+</script>
+<img src="https://www.websurfer.com.np/images/3d-websurfer-logo-light-tagline.png" alt="LOGO" height="220
+"/>
+
+</body>
+</html>
